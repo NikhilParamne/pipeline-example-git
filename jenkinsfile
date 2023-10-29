@@ -9,7 +9,7 @@ pipeline{
         steps{
         sh 'javac Test.java'
         }
-                
+
         }
 
         stage("run"){
@@ -19,5 +19,19 @@ pipeline{
         }
 
         }
+    }
+    post{
+
+    always{
+        sh 'echo "always"'
+    }
+
+    success{
+        sh 'echo "success"'
+    }
+    
+    failure{
+         sh 'echo "failure"'
+    }
     }
 }
